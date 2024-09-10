@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Testing2
+    <script>
+        // Suppose the URL is: https://example.com?page=1&sort=desc
+
+        // Step 1: Get the query string from the URL
+        const queryString = window.location.search;
+
+        // Step 2: Create a URLSearchParams object
+        const urlParams = new URLSearchParams(queryString);
+
+        // Step 3: Get specific query parameters
+        const page = urlParams.get('page');  // '1'
+        // alert(page);
+        localStorage.setItem('page2', page);
+    </script>
+</body>
+</html>

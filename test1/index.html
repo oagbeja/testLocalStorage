@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test1</title>
+</head>
+<body>
+
+    Testing1 
+    <iframe  id="myIframe" src="http://localhost:4000?page=5" style="display:none"></iframe>
+    <iframe id="myIframe2" src="http://localhost:8000" style="display:none"></iframe>
+    <input id="inp" />
+    
+    <button onclick="updatePage()">Update Pages </button>
+    <script>
+        function updatePage() {
+            const iframe = document.getElementById('myIframe');
+            const iframe2 = document.getElementById('myIframe2');
+            let arr = [iframe, iframe2];
+            let i=1;
+            let pageNumber=parseInt(document.getElementById('inp').value);
+            for(let elmFrame of arr){
+                let url = new URL(elmFrame.src);
+                url.searchParams.set('page', pageNumber*i);
+                elmFrame.src = url.toString();
+                i++;
+            }
+            
+        }
+    </script>
+</body>
+</html>
